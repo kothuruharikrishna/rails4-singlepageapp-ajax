@@ -1,0 +1,16 @@
+
+<div style="float:left;  width:40%;" id= "left">
+  <p><%= link_to "Create New Task",new_task_path,:remote=> true %></p>
+
+    <% @tasks =Task.all %>
+    <% @tasks.each do |task| %>
+      <%= link_to task.subject,task,:id => "change",class: "task_#{task.id}",:remote => true %><br/>
+    <% end %>
+</div>
+<div calss="hai" style="float:right; width:60%;line-height:1.6">
+  <div id="new_task">
+    <%= render :partial=> "form" %>
+  </div>
+</div>
+
+

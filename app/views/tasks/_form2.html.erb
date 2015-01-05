@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %> </p>
+<% @task1= Task.first %>
+<p>Show Task </p>
+ <table>
+     <tr><td>Subject:<td><%= @task1.subject %></td></tr>
+     <tr><td>Description:</td><td> <%= @task1.desc %></td></tr>
+     <tr><td>StartTime:</td><td><%= @task1.starttime %></td></tr>
+     <tr><td>Owner:</td><td><%= @task1.owner%></td></tr>
+ </table>
+  <p><%= link_to "Edit", edit_task_path(@task1),:remote=> true%>
+  |<%= link_to "remove", @task1, method: :delete, data: {confirm: "Are you sure?"}, remote: true %></p>

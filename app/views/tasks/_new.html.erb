@@ -1,0 +1,62 @@
+<%= form_for @task,:remote=> true,:html => { :id => "signupForms"} do |f| %>
+  <p>
+    <%= f.label :subject %><br/>
+    <%= f.text_field :subject%>
+  </p>
+  <p>
+    <%= f.label :desc %><br/>
+    <%= f.text_area :desc, :rows => 5 %>
+  </p>
+  <p>
+    <%= f.label :time %><br/>
+    <%= f.text_field  :starttime,:id=> "datetimepickerfield"%>
+  </p>
+  <p>
+    <%= f.label :owner %><br/>
+    <%= f.text_field :owner %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<script>
+$(document).ready(function() {  
+  $("#signupForms").validate({
+    rules: {
+      "task[subject]": {
+        required: true,
+        
+      },
+      "task[desc]": {
+        required: true,
+       
+      },
+      "task[starttime]": {
+        required: true,
+        
+      },
+      "task[owner]": {
+        required: true,
+        
+      }
+      },
+    messages: {
+            "task[subject]": "subjectcan't be blank",
+            "task[desc]": "description can't be blank",
+            "task[starttime]": "starttime can't be blank",
+            "task[owner]": "owner can't be blank"
+    }       
+  });
+
+  $('#datetimepickerfield').datetimepicker({
+    dayOfWeekStart : 1,
+    lang:'en',
+    startDate:  '01/01/2014'
+  });
+
+});
+
+</script>
+
+
+
+

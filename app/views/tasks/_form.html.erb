@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %> </p>
+<% if current_page? root_path %>
+  <%= render "show" %> 
+<% elsif current_page? new_task_path %>
+  <%= render "new" %>
+<% elsif current_page?  edit_task_path(@task) %>
+  <%= render "new" %> 
+<% elsif current_page? task_path(@task) %>
+  <%= render "show" %> 
+<% end %>
+
